@@ -10,6 +10,7 @@ sock_s=[]
 sock_r=[]
 ip=''
 c=-1
+c1=-1
 n=int(input("No of clients"))
 
 for i in range(n):
@@ -25,8 +26,10 @@ def recieve(i):
     while True:
         data=r_session[i].recv(10000000)
         time.sleep(2)
-        for j in range(n*n):
-            s_session[j].send(data)
+        for j in range(n):
+            data1=data
+            c1=c1+1
+            s_session[c1].send(data1)
 
             
 
